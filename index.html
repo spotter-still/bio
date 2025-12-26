@@ -1,99 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aron | Personal Page</title>
-
   <style>
+    /* Root colors */
     :root {
       --bg: #0b0e14;
-      --card: #11162a;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent: #4f7cff;
       --text: #eaeaf0;
       --muted: #9aa0b3;
-      --accent: #4f7cff;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", system-ui, sans-serif;
-    }
-
+    /* Basic reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Inter", sans-serif; }
     body {
-      background: radial-gradient(circle at top, #141a3a, var(--bg));
+      background: linear-gradient(135deg, #141a3a, #0b0e14);
       color: var(--text);
-      min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 420px;
-      padding: 24px;
-    }
-
+    /* Card container */
     .card {
-      background: linear-gradient(180deg, #151a35, var(--card));
+      backdrop-filter: blur(15px);
+      background: var(--card-bg);
       border-radius: 24px;
       padding: 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       animation: fadeUp 1s ease;
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Avatar */
     .avatar {
-      width: 90px;
-      height: 90px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #8ea6ff);
+      margin: 0 auto 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 36px;
+      font-size: 40px;
       font-weight: bold;
-      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--accent), #8ea6ff);
+      color: #fff;
     }
 
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+    .about { font-size: 15px; line-height: 1.6; margin-bottom: 24px; color: #d7d9e4; }
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .about {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-      color: #d7d9e4;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 26px; }
     .tag {
       background: rgba(79,124,255,0.15);
       color: var(--accent);
@@ -103,16 +74,12 @@
       font-weight: 500;
     }
 
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
+    /* Links */
+    .links { display: flex; flex-direction: column; gap: 14px; }
     .link {
       text-decoration: none;
       background: linear-gradient(135deg, var(--accent), #6b8cff);
-      color: white;
+      color: #fff;
       padding: 14px;
       border-radius: 14px;
       font-weight: 600;
@@ -120,53 +87,43 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 10px 25px rgba(79,124,255,0.35);
     }
-
     .link:hover {
       transform: translateY(-2px);
       box-shadow: 0 15px 35px rgba(79,124,255,0.5);
     }
 
-    footer {
-      text-align: center;
-      margin-top: 18px;
-      font-size: 12px;
-      color: var(--muted);
+    footer { text-align: center; margin-top: 18px; font-size: 12px; color: var(--muted); }
+
+    /* Responsive adjustments */
+    @media (max-width: 450px) {
+      .card { padding: 24px; }
+      .avatar { width: 80px; height: 80px; font-size: 32px; }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="card">
-      <div class="avatar">A</div>
-
-      <h1>Aron</h1>
-      <div class="subtitle">Student • AI & Tech • UK</div>
-
-      <p class="about">
-        16-year-old A-level student studying Maths, Chemistry & Biology.
-        Interested in AI engineering, software development, and building
-        high-impact projects. Future-focused and driven to be among the best.
-      </p>
-
-      <div class="tags">
-        <div class="tag">AI</div>
-        <div class="tag">Python</div>
-        <div class="tag">Web Dev</div>
-        <div class="tag">Science</div>
-        <div class="tag">Future Builder</div>
-      </div>
-
-      <div class="links">
-        <a class="link" href="#" target="_blank">Instagram</a>
-        <a class="link" href="#" target="_blank">GitHub</a>
-        <a class="link" href="#" target="_blank">Contact</a>
-      </div>
+  <div class="card">
+    <div class="avatar">A</div>
+    <h1>Aron</h1>
+    <div class="subtitle">Student • AI & Tech • UK</div>
+    <p class="about">
+      16-year-old A-level student studying Maths, Chemistry & Biology.
+      Interested in AI engineering, software development, and building high-impact projects.
+      Future-focused and driven to be among the best.
+    </p>
+    <div class="tags">
+      <div class="tag">AI</div>
+      <div class="tag">Python</div>
+      <div class="tag">Web Dev</div>
+      <div class="tag">Science</div>
+      <div class="tag">Future Builder</div>
     </div>
-
-    <footer>
-      © 2025 • Built by Aron
-    </footer>
+    <div class="links">
+      <a class="link" href="#" target="_blank">Instagram</a>
+      <a class="link" href="#" target="_blank">GitHub</a>
+      <a class="link" href="#" target="_blank">Contact</a>
+    </div>
   </div>
+  <footer>© 2025 • Built by Aron</footer>
 </body>
 </html>
